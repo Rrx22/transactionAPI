@@ -1,6 +1,5 @@
 package nl.rrx.TransactionsAPI.controller;
 
-import nl.rrx.TransactionsAPI.entity.Transaction;
 import nl.rrx.TransactionsAPI.response.transaction.TransactionRequest;
 import nl.rrx.TransactionsAPI.response.transaction.TransactionResponse;
 import nl.rrx.TransactionsAPI.service.TransactionService;
