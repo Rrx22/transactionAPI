@@ -64,7 +64,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>nl.rrx.TransactionsAPI.TransactionsApiApplication</mainClass>
+					<mainClass>nl.rrx.transactionsapi.TransactionsApiApplication</mainClass>
 					<layout>JAR</layout>
 				</configuration>
 				<executions>

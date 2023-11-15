@@ -1,4 +1,4 @@
-package nl.rrx.TransactionsAPI.response.transaction;
+package nl.rrx.transactionsapi.response.transaction;
 
 import java.time.LocalDate;
 

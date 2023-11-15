@@ -1,6 +1,6 @@
-package nl.rrx.TransactionsAPI.configuration;
+package nl.rrx.transactionsapi.configuration;
 
-import nl.rrx.TransactionsAPI.service.TransactionService;
+import nl.rrx.transactionsapi.service.TransactionService;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,32 +1,18 @@
-package nl.rrx.TransactionsAPI.entity;
-import jakarta.persistence.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+package nl.rrx.transactionsapi.response.transaction;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "transaction")
-public class Transaction {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class TransactionResponse {
     private int id;
-    @CreationTimestamp
-    @Column(name="createdate")
-    LocalDateTime createDate;
-    @UpdateTimestamp
-    @Column(name="changedate")
-    LocalDateTime changeDate;
+    private LocalDateTime createDate;
+    private LocalDateTime changeDate;
     private double amount;
     private LocalDate date;
     private String description;
-    @Column(name="importfile")
     private String importFile; //todo importfile entity
     private String category; //todo category enum
     private String account; //todo Account entity
-    @Column(name="isvalidated")
     private boolean isValidated;
 
     public int getId() {

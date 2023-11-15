@@ -1,9 +1,9 @@
-package nl.rrx.TransactionsAPI.service;
+package nl.rrx.transactionsapi.service;
 
-import nl.rrx.TransactionsAPI.entity.Transaction;
-import nl.rrx.TransactionsAPI.repository.TransactionRepo;
-import nl.rrx.TransactionsAPI.response.transaction.TransactionRequest;
-import nl.rrx.TransactionsAPI.response.transaction.TransactionResponse;
+import nl.rrx.transactionsapi.entity.Transaction;
+import nl.rrx.transactionsapi.repository.TransactionRepo;
+import nl.rrx.transactionsapi.response.transaction.TransactionRequest;
+import nl.rrx.transactionsapi.response.transaction.TransactionResponse;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
