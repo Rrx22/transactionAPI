@@ -10,4 +10,20 @@ public class CategoryFilter extends BaseEntity {
     private String filter;
     @ManyToOne
     private Category category;
+
+    public String getFilter() {
+        return filter;
+    }
+
+    public void setFilter(String filter) {
+        this.filter = filter;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 }
