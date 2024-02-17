@@ -1,13 +1,21 @@
 #!/bin/bash
 
-# Shut down Docker containers using Docker Compose
+echo '******
+STEP 1: Shut down Docker containers using Docker Compose
+******'
 docker-compose down
 
-# Clean and package with Maven
+echo '******
+STEP 2: Clean and package with Maven
+******'
 mvn clean package
 
-# Build Docker image
+echo '******
+STEP 3: Build Docker image
+******'
 docker build -t transactionapi:latest .
 
-# Bring up Docker containers using Docker Compose
+echo '******
+STEP 4: Bring up Docker containers using Docker Compose
+******'
 docker-compose up

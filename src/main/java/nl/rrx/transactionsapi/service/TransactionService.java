@@ -2,9 +2,10 @@ package nl.rrx.transactionsapi.service;
 
 import nl.rrx.transactionsapi.entity.Transaction;
 import nl.rrx.transactionsapi.repository.TransactionRepo;
-import nl.rrx.transactionsapi.response.transaction.TransactionRequest;
-import nl.rrx.transactionsapi.response.transaction.TransactionResponse;
-import org.modelmapper.ModelMapper;
+import nl.rrx.transactionsapi.dto.MappingException;
+import nl.rrx.transactionsapi.dto.transaction.TransactionMapper;
+import nl.rrx.transactionsapi.dto.transaction.TransactionRequest;
+import nl.rrx.transactionsapi.dto.transaction.TransactionResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
 
@@ -14,28 +15,25 @@ import java.util.Optional;
 public class TransactionService {
 
     @Autowired
-    private TransactionRepo transactionRepo;
-
+    private TransactionRepo repo;
     @Autowired
-    private ModelMapper mapper;
+    private TransactionMapper mapper;
 
     public List<TransactionResponse> getAll() {
-        List<Transaction> transactions = transactionRepo.findAll();
-        return mapper.map(transactions, List.class);
+        var transactions = repo.findAll();
+        return transactions.stream().map(mapper::mapResponse).toList();
     }
 
     @Nullable
     public TransactionResponse getById(int id) {
-        Optional<Transaction> transaction = transactionRepo.findById(id);
-        if (transaction.isEmpty()) {
-            return null;
-        }
-        return mapper.map(transaction, TransactionResponse.class);
+        Optional<Transaction> transaction = repo.findById(id);
+        return transaction.map(mapper::mapResponse).orElse(null);
     }
 
-    public TransactionResponse create(TransactionRequest request) {
-        var newTransaction = mapper.map(request, Transaction.class);
-        newTransaction = transactionRepo.save(newTransaction);
-        return mapper.map(newTransaction, TransactionResponse.class);
+    public TransactionResponse create(TransactionRequest request) throws MappingException {
+        var newTransaction = mapper.mapRequest(request);
+        newTransaction = repo.save(newTransaction);
+        return mapper.mapResponse(newTransaction);
     }
 }
+

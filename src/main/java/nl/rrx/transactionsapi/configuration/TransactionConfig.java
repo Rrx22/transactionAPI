@@ -1,7 +1,7 @@
 package nl.rrx.transactionsapi.configuration;
 
+import nl.rrx.transactionsapi.dto.transaction.TransactionMapper;
 import nl.rrx.transactionsapi.service.TransactionService;
-import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -14,8 +14,8 @@ public class TransactionConfig {
     }
 
     @Bean
-    public ModelMapper modelMapperBean() {
-        return new ModelMapper();
+    public TransactionMapper transactionMapper() {
+        return new TransactionMapper();
     }
 
 }

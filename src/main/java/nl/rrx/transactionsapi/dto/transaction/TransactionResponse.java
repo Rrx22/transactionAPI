@@ -1,18 +1,20 @@
-package nl.rrx.transactionsapi.response.transaction;
+package nl.rrx.transactionsapi.dto.transaction;
+
+import nl.rrx.transactionsapi.dto.Response;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class TransactionResponse {
+public class TransactionResponse implements Response {
     private int id;
     private LocalDateTime createDate;
     private LocalDateTime changeDate;
     private double amount;
     private LocalDate date;
     private String description;
-    private String importFile; //todo importfile entity
-    private String category; //todo category enum
-    private String account; //todo Account entity
+    private String importFile;
+    private String category;
+    private String accountName;
     private boolean isValidated;
 
     public int getId() {
@@ -79,12 +81,12 @@ public class TransactionResponse {
         this.category = category;
     }
 
-    public String getAccount() {
-        return account;
+    public String getAccountName() {
+        return accountName;
     }
 
-    public void setAccount(String account) {
-        this.account = account;
+    public void setAccountName(String accountName) {
+        this.accountName = accountName;
     }
 
     public boolean isValidated() {

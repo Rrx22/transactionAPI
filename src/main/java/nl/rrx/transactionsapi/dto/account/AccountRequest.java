@@ -1,25 +1,14 @@
-package nl.rrx.transactionsapi.entity;
+package nl.rrx.transactionsapi.dto.account;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
+import nl.rrx.transactionsapi.dto.Request;
 
 import java.math.BigDecimal;
-import java.util.List;
 
-@Entity
-public class Account extends BaseEntity {
-
-    @Column
+public class AccountRequest implements Request {
     private String name;
-    @Column
     private String iban;
-    @Column
     private BigDecimal balance;
-    @Column
     private String bank;
-    @OneToMany(mappedBy = "account")
-    private List<Transaction> transactionList;
 
     public String getName() {
         return name;
@@ -51,13 +40,5 @@ public class Account extends BaseEntity {
 
     public void setBank(String bank) {
         this.bank = bank;
-    }
-
-    public List<Transaction> getTransactionList() {
-        return transactionList;
-    }
-
-    public void setTransactionList(List<Transaction> transactionList) {
-        this.transactionList = transactionList;
     }
 }

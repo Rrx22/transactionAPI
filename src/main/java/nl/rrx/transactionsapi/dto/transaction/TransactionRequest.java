@@ -1,14 +1,17 @@
-package nl.rrx.transactionsapi.response.transaction;
+package nl.rrx.transactionsapi.dto.transaction;
+
+import nl.rrx.transactionsapi.dto.Request;
 
 import java.time.LocalDate;
 
-public class TransactionRequest {
+public class TransactionRequest implements Request {
     private double amount;
     private LocalDate date;
     private String description;
-    private String importFile; //todo importfile entity
-    private String category; //todo category enum
-    private String account; //todo Account entity
+    private String importFile;
+    private String category;
+    private int accountID;
+    private boolean isValidated;
 
     public double getAmount() {
         return amount;
@@ -50,11 +53,19 @@ public class TransactionRequest {
         this.category = category;
     }
 
-    public String getAccount() {
-        return account;
+    public int getAccountID() {
+        return accountID;
     }
 
-    public void setAccount(String account) {
-        this.account = account;
+    public void setAccountID(int accountID) {
+        this.accountID = accountID;
+    }
+
+    public boolean isValidated() {
+        return isValidated;
+    }
+
+    public void setValidated(boolean validated) {
+        isValidated = validated;
     }
 }
