@@ -1,57 +1,26 @@
 package nl.rrx.transactionsapi.entity;
 import jakarta.persistence.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "transaction")
-public class Transaction {
+public class Transaction extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @CreationTimestamp
-    @Column(name="createdate")
-    LocalDateTime createDate;
-    @UpdateTimestamp
-    @Column(name="changedate")
-    LocalDateTime changeDate;
+    @Column(nullable = false)
     private double amount;
+    @Column(nullable = false)
     private LocalDate date;
+    @Column
     private String description;
-    @Column(name="importfile")
-    private String importFile; //todo importfile entity
-    private String category; //todo category enum
-    private String account; //todo Account entity
-    @Column(name="isvalidated")
+    @Column
+    private String importFile;
+    @ManyToOne
+    private Category category;
+    @ManyToOne
+    private Account account;
+    @Column
     private boolean isValidated;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public LocalDateTime getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(LocalDateTime createDate) {
-        this.createDate = createDate;
-    }
-
-    public LocalDateTime getChangeDate() {
-        return changeDate;
-    }
-
-    public void setChangeDate(LocalDateTime changeDate) {
-        this.changeDate = changeDate;
-    }
 
     public double getAmount() {
         return amount;
@@ -85,19 +54,19 @@ public class Transaction {
         this.importFile = importFile;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
-    public String getAccount() {
+    public Account getAccount() {
         return account;
     }
 
-    public void setAccount(String account) {
+    public void setAccount(Account account) {
         this.account = account;
     }
 
