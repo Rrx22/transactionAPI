@@ -24,14 +24,14 @@ public class CategoryService {
 
     @Nullable
     public CategoryDTO getById(int id) {
-        Optional<Category> account = repo.findById(id);
-        return account.map(mapper::mapResponse).orElse(null);
+        Optional<Category> category = repo.findById(id);
+        return category.map(mapper::mapResponse).orElse(null);
     }
 
     public CategoryDTO create(CategoryDTO request) {
-        var newAccount = mapper.mapRequest(request);
-        newAccount = repo.save(newAccount);
-        return mapper.mapResponse(newAccount);
+        var newCategory = mapper.mapRequest(request);
+        newCategory = repo.save(newCategory);
+        return mapper.mapResponse(newCategory);
     }
 }
 

@@ -36,15 +36,14 @@ public class TransactionController {
         return ResponseEntity.status(HttpStatus.OK).body(transaction);
     }
 
-    @PostMapping("")
-    public ResponseEntity<TransactionResponse> create(@RequestBody TransactionRequest transaction) {
+    @PostMapping()
+    public ResponseEntity<Object> create(@RequestBody TransactionRequest transaction) {
         try {
             var response = service.create(transaction);
             return ResponseEntity.status(HttpStatus.CREATED).body(response);
         } catch (MappingException e) {
-            // TODO find a nice way to put it in the return message??
             Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, e.getMessage());
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
 }
