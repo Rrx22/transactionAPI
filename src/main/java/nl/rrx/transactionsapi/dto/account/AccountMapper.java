@@ -20,7 +20,6 @@ public class AccountMapper implements Mappable<Account, AccountRequest, AccountR
         account.setBank(request.getBank());
         account.setIban(request.getIban());
         account.setName(request.getName());
-        account.setChangeDate(LocalDateTime.now());
         account.setCreateDate(LocalDateTime.now());
         return account;
     }

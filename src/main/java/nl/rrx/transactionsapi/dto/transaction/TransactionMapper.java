@@ -33,7 +33,6 @@ public class TransactionMapper implements Mappable<Transaction, TransactionReque
         transaction.setDescription(request.getDescription());
         transaction.setImportFile(request.getImportFile());
         transaction.setValidated(request.isValidated());
-        transaction.setChangeDate(LocalDateTime.now());
         transaction.setCreateDate(LocalDateTime.now());
         return transaction;
     }
