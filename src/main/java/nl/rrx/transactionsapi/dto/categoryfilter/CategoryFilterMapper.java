@@ -6,9 +6,11 @@ import nl.rrx.transactionsapi.entity.Category;
 import nl.rrx.transactionsapi.entity.CategoryFilter;
 import nl.rrx.transactionsapi.repository.CategoryRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
+@Component
 public class CategoryFilterMapper implements Mappable<CategoryFilter, CategoryFilterDTO, CategoryFilterDTO> {
 
     @Autowired

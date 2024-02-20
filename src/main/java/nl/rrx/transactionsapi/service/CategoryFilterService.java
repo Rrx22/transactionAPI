@@ -7,10 +7,12 @@ import nl.rrx.transactionsapi.entity.CategoryFilter;
 import nl.rrx.transactionsapi.repository.CategoryFilterRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class CategoryFilterService {
 
     @Autowired

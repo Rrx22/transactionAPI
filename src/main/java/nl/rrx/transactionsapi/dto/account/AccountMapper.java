@@ -5,9 +5,11 @@ import nl.rrx.transactionsapi.entity.Account;
 import nl.rrx.transactionsapi.repository.AccountRepo;
 import nl.rrx.transactionsapi.repository.TransactionRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
+@Component
 public class AccountMapper implements Mappable<Account, AccountRequest, AccountResponse> {
     @Autowired
     private AccountRepo accountRepo;

@@ -8,10 +8,12 @@ import nl.rrx.transactionsapi.dto.transaction.TransactionRequest;
 import nl.rrx.transactionsapi.dto.transaction.TransactionResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class TransactionService {
 
     @Autowired

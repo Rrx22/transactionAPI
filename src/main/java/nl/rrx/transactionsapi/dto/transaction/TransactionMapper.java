@@ -6,9 +6,11 @@ import nl.rrx.transactionsapi.repository.AccountRepo;
 import nl.rrx.transactionsapi.repository.CategoryRepo;
 import nl.rrx.transactionsapi.dto.MappingException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
+@Component
 public class TransactionMapper implements Mappable<Transaction, TransactionRequest, TransactionResponse> {
     @Autowired
     private AccountRepo accountRepo;
